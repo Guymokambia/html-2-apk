@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Diese Ride</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0;
+    background: #f5f8fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    background-color: #2196F3;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  main {
+    flex: 1;
+    max-width: 480px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+    padding: 1rem 2rem 2rem;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .btn-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+  }
+  button {
+    background-color: #2196F3;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    flex: 1;
+    margin: 0 0.5rem;
+    transition: background-color 0.3s ease;
+  }
+  button.green {
+    background-color: #4CAF50;
+  }
+  button:hover {
+    opacity: 0.85;
+  }
+  iframe {
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+  }
+  .payment-section {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .payment-section h3 {
+    margin-bottom: 1rem;
+  }
+  .payment-btns button {
+    margin: 0.5rem;
+    background-color: #f57c00;
+    border-radius: 8px;
+    border: none;
+    padding: 0.75rem 1.2rem;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .payment-btns button.mpesa {
+    background-color: #007e4f;
+  }
+  .payment-btns button:hover {
+    opacity: 0.8;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #777;
+  }
+</style>
+</head>
+<body>
+
+<header>Diese Ride</header>
+
+<main>
+  <h2>Bienvenue sur Diese Ride</h2>
+
+  <div class="btn-group">
+    <button id="btnPassager">Je suis Passager</button>
+    <button id="btnChauffeur" class="green">Je suis Chauffeur</button>
+  </div>
+
+  <iframe id="mapFrame" src="https://maps.google.com/maps?q=Kinshasa&t=&z=12&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+
+  <div class="payment-section">
+    <h3>Moyens de paiement</h3>
+    <div class="payment-btns">
+      <button id="payAirtel">Payer avec Airtel Money</button>
+      <button id="payMpesa" class="mpesa">Payer avec M-Pesa</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Diese Ride - Tous droits réservés
+</footer>
+
+<script>
+  const btnPassager = document.getElementById('btnPassager');
+  const btnChauffeur = document.getElementById('btnChauffeur');
+  const mapFrame = document.getElementById('mapFrame');
+  const payAirtel = document.getElementById('payAirtel');
+  const payMpesa = document.getElementById('payMpesa');
+
+  btnPassager.addEventListener('click', () => {
+    mapFrame.src = 'https://maps.google.com/maps?q=Kinshasa%20passager&t=&z=12&ie=UTF8&iwloc=&output=embed';
+  });
+
+  btnChauffeur.addEventListener('click', () => {
+    mapFrame.src = 'https://maps.google.com/maps?q=Kinshasa%20chauffeur&t=&z=12&ie=UTF8&iwloc=&output=embed';
+  });
+
+  // Simuler un paiement (fonction à remplacer par vraie intégration API)
+  payAirtel.addEventListener('click', () => {
+    alert('Paiement via Airtel Money (simulation).');
+  });
+
+  payMpesa.addEventListener('click', () => {
+    alert('Paiement via M-Pesa (simulation).');
+  });
+</script>
+
+</body>
+</html>
